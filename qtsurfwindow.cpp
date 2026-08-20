@@ -16,6 +16,7 @@
 #include <QApplication>
 #include <QPushButton>
 #include <QToolButton>
+#include <QAbstractButton>
 #include <QPalette>
 #include <QPainter>
 #include <QFile>
@@ -63,6 +64,7 @@ BrowserWindow::BrowserWindow(QWidget *parent)
     , m_emTelaCheia(false)
 {
     ui->setupUi(this);
+    resize(1280, 800); // tamanho padrão de fallback (usado se a janela for restaurada/desmaximizada)
 
     // Visual limpo estilo Chrome: sem barra de menus clássica.
     // As ações (e seus atalhos) continuam ativas e moram no menu "⋮".
@@ -91,12 +93,12 @@ BrowserWindow::~BrowserWindow()
 // ---------------------------------------------------------------- conexões
 void BrowserWindow::configurarConexoes()
 {
-    connect(ui->urlBar, &QLineEdit::returnPressed,   this, &BrowserWindow::navegar);
-    connect(ui->home, &QPushButton::clicked,         this, &BrowserWindow::irParaHome);
-    connect(ui->atualizar, &QPushButton::clicked,    this, &BrowserWindow::atualizarPagina);
-    connect(ui->btnVoltar, &QPushButton::clicked,    this, &BrowserWindow::voltar);
-    connect(ui->btnAvancar, &QPushButton::clicked,   this, &BrowserWindow::avancar);
-    connect(ui->btnNovaAba, &QToolButton::clicked,   this, &BrowserWindow::novaAba);
+    connect(ui->urlBar, &QLineEdit::returnPressed,       this, &BrowserWindow::navegar);
+    connect(ui->home, &QAbstractButton::clicked,         this, &BrowserWindow::irParaHome);
+    connect(ui->atualizar, &QAbstractButton::clicked,    this, &BrowserWindow::atualizarPagina);
+    connect(ui->btnVoltar, &QAbstractButton::clicked,    this, &BrowserWindow::voltar);
+    connect(ui->btnAvancar, &QAbstractButton::clicked,   this, &BrowserWindow::avancar);
+    connect(ui->btnNovaAba, &QAbstractButton::clicked,   this, &BrowserWindow::novaAba);
 
     connect(ui->tabBar, &QTabBar::currentChanged,    this, &BrowserWindow::abaAtualMudou);
     connect(ui->tabBar, &QTabBar::tabCloseRequested, this, &BrowserWindow::fecharAba);
@@ -136,11 +138,7 @@ void BrowserWindow::configurarMenuPrincipal()
 
 // ---------------------------------------------------------------- ícones
 //
-// IMPORTANTE: os arquivos estão registrados no QtSurf.qrc com o prefixo
-// "/modern" e o caminho de arquivo "icones/modern/<nome>.svg", então o
-// caminho de recurso final é ":/modern/icones/modern/<nome>.svg".
-// (Antes o código usava ":/modern/<nome>.svg", que não existia — por isso
-// os ícones da toolbar não apareciam / ficavam inconsistentes com o tema.)
+
 void BrowserWindow::aplicarIconesDoTema()
 {
     const bool escuro = qApp->palette().color(QPalette::Window).lightness() < 128;

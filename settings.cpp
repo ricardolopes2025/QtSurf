@@ -101,7 +101,7 @@ struct CoresTema
     QString textoSuave;     // texto secundário
     QString urlBg;          // fundo do omnibox
     QString urlFocusBg;     // omnibox com foco
-    QString urlFocusBorda;  // borda do omnibox com foco
+    QString urlFocusBorda;  // borda do omnibox com foco (cor de destaque)
     QString btnHover;       // botões sob o mouse
     QString btnPress;       // botões pressionados
     QString menuBg;         // fundo dos menus popup
@@ -113,6 +113,9 @@ struct CoresTema
     QString botaoBorda;
     QString botaoHover;
     QString botaoPress;
+    QString scrollBg;       // trilho da scrollbar
+    QString scrollHandle;   // alça da scrollbar
+    QString scrollHandleHover;
 };
 
 CoresTema coresClaras()
@@ -127,7 +130,7 @@ CoresTema coresClaras()
         QStringLiteral("#5F6368"),          // textoSuave
         QStringLiteral("#F0F2F4"),          // urlBg
         QStringLiteral("#FFFFFF"),          // urlFocusBg
-        QStringLiteral("#BDBFC7"),          // urlFocusBorda
+        QStringLiteral("#1A73E8"),          // urlFocusBorda (azul de destaque)
         QStringLiteral("rgba(60,64,67,26)"),   // btnHover  (~10%)
         QStringLiteral("rgba(60,64,67,46)"),   // btnPress  (~18%)
         QStringLiteral("#FFFFFF"),          // menuBg
@@ -138,7 +141,10 @@ CoresTema coresClaras()
         QStringLiteral("#FFFFFF"),          // botaoBg
         QStringLiteral("#DADCE0"),          // botaoBorda
         QStringLiteral("#F3F4F6"),          // botaoHover
-        QStringLiteral("#E8EAED")           // botaoPress
+        QStringLiteral("#E8EAED"),          // botaoPress
+        QStringLiteral("transparent"),      // scrollBg
+        QStringLiteral("#C7CACF"),          // scrollHandle
+        QStringLiteral("#A8ABB1")           // scrollHandleHover
     };
 }
 
@@ -154,7 +160,7 @@ CoresTema coresEscuras()
         QStringLiteral("#9AA0A6"),          // textoSuave
         QStringLiteral("#1E2124"),          // urlBg
         QStringLiteral("#2A2D32"),          // urlFocusBg
-        QStringLiteral("#5B5F66"),          // urlFocusBorda
+        QStringLiteral("#8AB4F8"),          // urlFocusBorda (azul de destaque)
         QStringLiteral("rgba(255,255,255,23)"),  // btnHover  (~9%)
         QStringLiteral("rgba(255,255,255,41)"),  // btnPress  (~16%)
         QStringLiteral("#2B2D31"),          // menuBg
@@ -165,7 +171,10 @@ CoresTema coresEscuras()
         QStringLiteral("#36393F"),          // botaoBg
         QStringLiteral("#4A4E54"),          // botaoBorda
         QStringLiteral("#404449"),          // botaoHover
-        QStringLiteral("#4C5057")           // botaoPress
+        QStringLiteral("#4C5057"),          // botaoPress
+        QStringLiteral("transparent"),      // scrollBg
+        QStringLiteral("#4A4E54"),          // scrollHandle
+        QStringLiteral("#5B5F66")           // scrollHandleHover
     };
 }
 
@@ -194,9 +203,10 @@ QTabBar::tab {
     border-radius: 11px;
     color: @TEXTO_SUAVE@;
     margin: 1px 2px;
-    padding: 7px 12px;
-    min-width: 110px;
+    padding: 7px 14px;
+    min-width: 116px;
     max-width: 260px;
+    font-weight: 500;
 }
 
 QTabBar::tab:hover:!selected {
@@ -207,6 +217,7 @@ QTabBar::tab:hover:!selected {
 QTabBar::tab:selected {
     background: @TAB_ATIVA@;
     color: @TEXTO@;
+    font-weight: 600;
 }
 
 QTabBar::close-button {
@@ -241,12 +252,12 @@ QTabBar QToolButton:pressed {
 QToolButton#btnNovaAba {
     background: transparent;
     border: none;
-    border-radius: 14px;
+    border-radius: 15px;
     padding: 0px;
-    min-width: 28px;
-    max-width: 28px;
-    min-height: 28px;
-    max-height: 28px;
+    min-width: 30px;
+    max-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
 }
 QToolButton#btnNovaAba:hover {
     background: @BTN_HOVER@;
@@ -265,12 +276,12 @@ QWidget#toolbarContainer {
 #toolbarContainer QToolButton {
     background: transparent;
     border: none;
-    border-radius: 16px;
+    border-radius: 17px;
     padding: 0px;
-    min-width: 32px;
-    max-width: 32px;
-    min-height: 32px;
-    max-height: 32px;
+    min-width: 34px;
+    max-width: 34px;
+    min-height: 34px;
+    max-height: 34px;
 }
 #toolbarContainer QPushButton:hover,
 #toolbarContainer QToolButton:hover {
@@ -455,32 +466,80 @@ QProgressBar::chunk {
     background: @DESTAQUE@;
     border-radius: 5px;
 }
+
+/* ---- scrollbars planas, mesma linguagem visual do resto do app ---- */
+QScrollBar:vertical {
+    background: @SCROLL_BG@;
+    width: 11px;
+    margin: 2px;
+}
+QScrollBar::handle:vertical {
+    background: @SCROLL_HANDLE@;
+    min-height: 30px;
+    border-radius: 5px;
+}
+QScrollBar::handle:vertical:hover {
+    background: @SCROLL_HANDLE_HOVER@;
+}
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    background: transparent;
+}
+
+QScrollBar:horizontal {
+    background: @SCROLL_BG@;
+    height: 11px;
+    margin: 2px;
+}
+QScrollBar::handle:horizontal {
+    background: @SCROLL_HANDLE@;
+    min-width: 30px;
+    border-radius: 5px;
+}
+QScrollBar::handle:horizontal:hover {
+    background: @SCROLL_HANDLE_HOVER@;
+}
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    width: 0px;
+}
+QScrollBar::add-page:horizontal,
+QScrollBar::sub-page:horizontal {
+    background: transparent;
+}
 )CSS");
 
     const auto rep = [&css](const char *token, const QString &valor) {
         css.replace(QString::fromUtf8(token), valor);
     };
-    rep("@STRIP_BG@",        c.stripBg);
-    rep("@TAB_ATIVA@",       c.tabAtiva);
-    rep("@TAB_HOVER@",       c.tabHover);
-    rep("@BARRA_BG@",        c.barraBg);
-    rep("@BARRA_BORDA@",     c.barraBorda);
-    rep("@TEXTO@",           c.texto);
-    rep("@TEXTO_SUAVE@",     c.textoSuave);
-    rep("@URL_BG@",          c.urlBg);
-    rep("@URL_FOCUS_BG@",    c.urlFocusBg);
-    rep("@URL_FOCUS_BORDA@", c.urlFocusBorda);
-    rep("@BTN_HOVER@",       c.btnHover);
-    rep("@BTN_PRESS@",       c.btnPress);
-    rep("@MENU_BG@",         c.menuBg);
-    rep("@MENU_BORDA@",      c.menuBorda);
-    rep("@MENU_HOVER@",      c.menuHover);
-    rep("@DESTAQUE@",        c.destaque);
-    rep("@DESTAQUE_TEXTO@",  c.destaqueTexto);
-    rep("@BOTAO_BG@",        c.botaoBg);
-    rep("@BOTAO_BORDA@",     c.botaoBorda);
-    rep("@BOTAO_HOVER@",     c.botaoHover);
-    rep("@BOTAO_PRESS@",     c.botaoPress);
+    rep("@STRIP_BG@",           c.stripBg);
+    rep("@TAB_ATIVA@",          c.tabAtiva);
+    rep("@TAB_HOVER@",          c.tabHover);
+    rep("@BARRA_BG@",           c.barraBg);
+    rep("@BARRA_BORDA@",        c.barraBorda);
+    rep("@TEXTO@",              c.texto);
+    rep("@TEXTO_SUAVE@",        c.textoSuave);
+    rep("@URL_BG@",             c.urlBg);
+    rep("@URL_FOCUS_BG@",       c.urlFocusBg);
+    rep("@URL_FOCUS_BORDA@",    c.urlFocusBorda);
+    rep("@BTN_HOVER@",          c.btnHover);
+    rep("@BTN_PRESS@",          c.btnPress);
+    rep("@MENU_BG@",            c.menuBg);
+    rep("@MENU_BORDA@",         c.menuBorda);
+    rep("@MENU_HOVER@",         c.menuHover);
+    rep("@DESTAQUE@",           c.destaque);
+    rep("@DESTAQUE_TEXTO@",     c.destaqueTexto);
+    rep("@BOTAO_BG@",           c.botaoBg);
+    rep("@BOTAO_BORDA@",        c.botaoBorda);
+    rep("@BOTAO_HOVER@",        c.botaoHover);
+    rep("@BOTAO_PRESS@",        c.botaoPress);
+    rep("@SCROLL_BG@",          c.scrollBg);
+    rep("@SCROLL_HANDLE@",      c.scrollHandle);
+    rep("@SCROLL_HANDLE_HOVER@",c.scrollHandleHover);
     return css;
 }
 
