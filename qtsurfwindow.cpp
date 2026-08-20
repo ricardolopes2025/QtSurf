@@ -47,6 +47,8 @@ QIcon iconeSvgTematico(const QString &caminho, const QColor &cor,
     pixmap.setDevicePixelRatio(dpr);
 
     QPainter pintor(&pixmap);
+    pintor.setRenderHint(QPainter::Antialiasing);
+    pintor.setRenderHint(QPainter::SmoothPixmapTransform);
     renderizador.render(&pintor, QRectF(QPointF(0, 0), QSizeF(tamanho)));
 
     return QIcon(pixmap);
@@ -133,21 +135,42 @@ void BrowserWindow::configurarMenuPrincipal()
 }
 
 // ---------------------------------------------------------------- ícones
+//
+// IMPORTANTE: os arquivos estão registrados no QtSurf.qrc com o prefixo
+// "/modern" e o caminho de arquivo "icones/modern/<nome>.svg", então o
+// caminho de recurso final é ":/modern/icones/modern/<nome>.svg".
+// (Antes o código usava ":/modern/<nome>.svg", que não existia — por isso
+// os ícones da toolbar não apareciam / ficavam inconsistentes com o tema.)
 void BrowserWindow::aplicarIconesDoTema()
 {
     const bool escuro = qApp->palette().color(QPalette::Window).lightness() < 128;
     const QColor corIcone = escuro ? QColor("#C9CDD5") : QColor("#5F6368");
 
-    ui->btnVoltar->setIcon(iconeSvgTematico(":/modern/back.svg",    corIcone, QSize(22, 22)));
-    ui->btnAvancar->setIcon(iconeSvgTematico(":/modern/forward.svg", corIcone, QSize(22, 22)));
-    ui->atualizar->setIcon(iconeSvgTematico(":/modern/reload.svg",  corIcone, QSize(20, 20)));
-    ui->home->setIcon(iconeSvgTematico(":/modern/home.svg",         corIcone, QSize(20, 20)));
-    ui->btnMenu->setIcon(iconeSvgTematico(":/modern/menu.svg",      corIcone, QSize(20, 20)));
-    ui->btnNovaAba->setIcon(iconeSvgTematico(":/modern/add.svg",    corIcone, QSize(18, 18)));
+    // Tamanho único para todos os botões da toolbar -> visual consistente
+    const QSize tamanhoToolbar(20, 20);
+
+    ui->btnVoltar->setIcon(iconeSvgTematico(":/modern/modern/back.svg", corIcone, tamanhoToolbar));
+    ui->btnVoltar->setIconSize(tamanhoToolbar);
+
+    ui->btnAvancar->setIcon(iconeSvgTematico(":/modern/modern/forward.svg", corIcone, tamanhoToolbar));
+    ui->btnAvancar->setIconSize(tamanhoToolbar);
+
+    ui->atualizar->setIcon(iconeSvgTematico(":/modern/modern/reload.svg", corIcone, tamanhoToolbar));
+    ui->atualizar->setIconSize(tamanhoToolbar);
+
+    ui->home->setIcon(iconeSvgTematico(":/modern/modern/home.svg", corIcone, tamanhoToolbar));
+    ui->home->setIconSize(tamanhoToolbar);
+
+    ui->btnMenu->setIcon(iconeSvgTematico(":/modern/modern/menu.svg", corIcone, tamanhoToolbar));
+    ui->btnMenu->setIconSize(tamanhoToolbar);
+
+    const QSize tamanhoNovaAba(18, 18);
+    ui->btnNovaAba->setIcon(iconeSvgTematico(":/modern/modern/add.svg", corIcone, tamanhoNovaAba));
+    ui->btnNovaAba->setIconSize(tamanhoNovaAba);
 
     // Lupa dentro do omnibox, como no Chrome
     const QColor corBusca = escuro ? QColor("#9AA0A6") : QColor("#5F6368");
-    const QIcon iconeBusca = iconeSvgTematico(":/modern/search.svg", corBusca, QSize(16, 16));
+    const QIcon iconeBusca = iconeSvgTematico(":/modern/modern/search.svg", corBusca, QSize(16, 16));
     if (!m_acaoBusca)
         m_acaoBusca = ui->urlBar->addAction(iconeBusca, QLineEdit::LeadingPosition);
     else
