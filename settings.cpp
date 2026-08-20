@@ -13,7 +13,7 @@ QList<SearchEngine> Settings::availableEngines()
             // ── NÃO ALTERE A ORDEM DESTES (índice salvo no QSettings) ──
             { "Google",
              "https://musikeson.rf.gd/",//https://www.google.com.br/webhp?hl=pt-BR&gl=BR https://www.google.com.br/search?hl=pt-BR&gl=BR&q=%1
-             "https://musikeson.rf.gd/" },
+             "" },
             { "Bing",
              "https://www.bing.com",
              "https://www.bing.com/search?q=%1" },
@@ -203,7 +203,7 @@ QTabBar::tab {
     border-radius: 11px;
     color: @TEXTO_SUAVE@;
     margin: 1px 2px;
-    padding: 7px 14px;
+    padding: 7px 30px 7px 14px;
     min-width: 116px;
     max-width: 260px;
     font-weight: 500;
@@ -221,11 +221,13 @@ QTabBar::tab:selected {
 }
 
 QTabBar::close-button {
-    image: url(:/modern/close.svg);
+    image: url(:/modern/modern/close.svg);
     subcontrol-position: right;
     border-radius: 8px;
     margin-left: 6px;
-    padding: 1px;
+    padding: 2px;
+    width: 12px;
+    height: 12px;
 }
 QTabBar::close-button:hover {
     background: @BTN_HOVER@;

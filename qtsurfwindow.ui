@@ -55,7 +55,7 @@
        <item>
         <widget class="QTabBar" name="tabBar" native="true">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -98,6 +98,22 @@
           <bool>true</bool>
          </property>
         </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacerAposNovaAba">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Expanding</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>
@@ -328,7 +344,7 @@
   <action name="actionFecharAba">
    <property name="icon">
     <iconset>
-     <normaloff>:/modern/icones/modern/close.svg</normaloff>:/modern/icones/modern/close.svg</iconset>
+     <normaloff>:/modern/modern/close.svg</normaloff>:/modern/modern/close.svg</iconset>
    </property>
    <property name="text">
     <string>Fechar Aba</string>
