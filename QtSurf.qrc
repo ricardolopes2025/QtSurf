@@ -4,13 +4,13 @@
         <file>icones/Browser.png</file>
     </qresource>
     <qresource lang="pt_BR" prefix="/modern">
-        <file>icones/modern/add.svg</file>
-        <file>icones/modern/back.svg</file>
-        <file>icones/modern/close.svg</file>
-        <file>icones/modern/forward.svg</file>
-        <file>icones/modern/home.svg</file>
-        <file>icones/modern/menu.svg</file>
-        <file>icones/modern/reload.svg</file>
-        <file>icones/modern/search.svg</file>
+        <file>modern/add.svg</file>
+        <file>modern/back.svg</file>
+        <file>modern/close.svg</file>
+        <file>modern/forward.svg</file>
+        <file>modern/home.svg</file>
+        <file>modern/menu.svg</file>
+        <file>modern/reload.svg</file>
+        <file>modern/search.svg</file>
     </qresource>
 </RCC>
