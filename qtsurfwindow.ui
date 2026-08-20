@@ -322,7 +322,7 @@
   <action name="actionFecharAba">
    <property name="icon">
     <iconset>
-     <normaloff>:/modern/icones/modern/close.svg</normaloff>:/modern/icones/modern/close.svg</iconset>
+     <normaloff>:/modern/modern/close.svg</normaloff>:/modern/modern/close.svg</iconset>
    </property>
    <property name="text">
     <string>Fechar Aba</string>
