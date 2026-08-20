@@ -1,0 +1,16 @@
+<RCC>
+    <qresource lang="pt_BR" prefix="/Windows-Icone">
+        <file>icones/Browser.ico</file>
+        <file>icones/Browser.png</file>
+    </qresource>
+    <qresource lang="pt_BR" prefix="/modern">
+        <file>icones/modern/add.svg</file>
+        <file>icones/modern/back.svg</file>
+        <file>icones/modern/close.svg</file>
+        <file>icones/modern/forward.svg</file>
+        <file>icones/modern/home.svg</file>
+        <file>icones/modern/menu.svg</file>
+        <file>icones/modern/reload.svg</file>
+        <file>icones/modern/search.svg</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,32 @@
+#include <windows.h>
+
+IDI_APPICON ICON "icones/Browser.ico"
+
+    VS_VERSION_INFO VERSIONINFO
+        FILEVERSION 1,0,0,0
+    PRODUCTVERSION 1,0,0,0
+    FILEFLAGSMASK 0x3fL
+    FILEFLAGS 0x0L
+    FILEOS VOS_NT_WINDOWS32
+        FILETYPE VFT_APP
+            FILESUBTYPE VFT2_UNKNOWN
+                BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+    BLOCK "041604E4"
+    BEGIN
+    VALUE "CompanyName", "QtSurf"
+    VALUE "FileDescription", "QtSurf"
+    VALUE "FileVersion", "1.0.0.0"
+    VALUE "InternalName", "QtSurf"
+    VALUE "LegalCopyright", "Copyright (C) 2024"
+    VALUE "OriginalFilename", "QtSurf.exe"
+    VALUE "ProductName", "QtSurf"
+    VALUE "ProductVersion", "1.0.0.0"
+    END
+        END
+    BLOCK "VarFileInfo"
+    BEGIN
+    VALUE "Translation", 0x0416, 1252
+    END
+    END

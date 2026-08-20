@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BrowserWindow</class>
+ <widget class="QMainWindow" name="BrowserWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>QtSurf</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="QtSurf.qrc">
+    <normaloff>:/Windows-Icone/icones/Browser.png</normaloff>:/Windows-Icone/icones/Browser.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="tabBarContainer" native="true">
+      <layout class="QHBoxLayout" name="tabBarLayout">
+       <property name="spacing">
+        <number>4</number>
+       </property>
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>6</number>
+       </property>
+       <property name="rightMargin">
+        <number>8</number>
+       </property>
+       <property name="bottomMargin">
+        <number>4</number>
+       </property>
+       <item>
+        <widget class="QTabBar" name="tabBar" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::FocusPolicy::NoFocus</enum>
+         </property>
+         <property name="tabsClosable" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="movable" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="documentMode" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="expanding" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="usesScrollButtons" stdset="0">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="btnNovaAba">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::FocusPolicy::NoFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Nova aba (Ctrl+T)</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">image: url(:/modern/icones/modern/add.svg);</string>
+         </property>
+         <property name="text">
+          <string>+</string>
+         </property>
+         <property name="icon">
+          <iconset resource="QtSurf.qrc">
+           <normaloff>:/modern/icones/modern/add.svg</normaloff>:/modern/icones/modern/add.svg</iconset>
+         </property>
+         <property name="autoRaise">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="toolbarContainer" native="true">
+      <layout class="QHBoxLayout" name="toolbarLayout">
+       <property name="spacing">
+        <number>2</number>
+       </property>
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>4</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>4</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="btnVoltar">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::FocusPolicy::NoFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Voltar</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">image: url(:/modern/icones/modern/back.svg);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnAvancar">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::FocusPolicy::NoFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Avançar</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">image: url(:/modern/icones/modern/forward.svg);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="atualizar">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::FocusPolicy::NoFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Atualizar</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">image: url(:/modern/icones/modern/reload.svg);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="home">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::FocusPolicy::NoFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Página Inicial</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">image: url(:/modern/icones/modern/home.svg);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="urlBar">
+         <property name="placeholderText">
+          <string>Pesquise ou digite um URL</string>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="btnMenu">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::FocusPolicy::NoFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Personalizar e controlar o QtSurf</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">image: url(:/modern/icones/modern/menu.svg);</string>
+         </property>
+         <property name="text">
+          <string>⋮</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>1</horstretch>
+        <verstretch>1</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::NoFrame</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArquivo">
+    <property name="title">
+     <string>Arquivo</string>
+    </property>
+    <addaction name="actionNovaAba"/>
+    <addaction name="actionFecharAba"/>
+    <addaction name="separator"/>
+    <addaction name="actionConfigura_es"/>
+    <addaction name="actionSair"/>
+   </widget>
+   <widget class="QMenu" name="menuNavegacao">
+    <property name="title">
+     <string>Navegação</string>
+    </property>
+    <addaction name="actionVoltar"/>
+    <addaction name="actionAvancar"/>
+    <addaction name="actionAtualizar"/>
+    <addaction name="actionHome"/>
+   </widget>
+   <addaction name="menuArquivo"/>
+   <addaction name="menuNavegacao"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSair">
+   <property name="text">
+    <string>Sair</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionVoltar">
+   <property name="text">
+    <string>Voltar</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Left</string>
+   </property>
+  </action>
+  <action name="actionAvancar">
+   <property name="text">
+    <string>Avançar</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Right</string>
+   </property>
+  </action>
+  <action name="actionAtualizar">
+   <property name="text">
+    <string>Atualizar</string>
+   </property>
+   <property name="shortcut">
+    <string>F5</string>
+   </property>
+  </action>
+  <action name="actionHome">
+   <property name="text">
+    <string>Página Inicial</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Home</string>
+   </property>
+  </action>
+  <action name="actionConfigura_es">
+   <property name="text">
+    <string>Configurações</string>
+   </property>
+  </action>
+  <action name="actionNovaAba">
+   <property name="text">
+    <string>Nova Aba</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="actionFecharAba">
+   <property name="icon">
+    <iconset resource="QtSurf.qrc">
+     <normaloff>:/modern/icones/modern/close.svg</normaloff>:/modern/icones/modern/close.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Fechar Aba</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QTabBar</class>
+   <extends>QWidget</extends>
+   <header>qtabbar.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="QtSurf.qrc"/>
+ </resources>
+ <connections/>
+</ui>
